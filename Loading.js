@@ -20,6 +20,6 @@ const styles = StyleSheet.create({
 
   text: {
     color: "#2c2c2c",
-    fontSize: "40px",
+    fontSize: 40,
   },
 });
