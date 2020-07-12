@@ -8,85 +8,58 @@ const weatherOptions = {
   Haze: {
     iconName: "weather-hail",
     gradient: ["#4DA0B0", "#D39D38"],
-    title: "",
-    subtitle: "",
   },
   Thunderstorm: {
     iconName: "weather-lightning-rainy",
     gradient: ["#0f0c29", "#373B44", "#24243e"],
-    title: "",
-    subtitle: "",
   },
   Drizzle: {
     iconName: "weather-partly-rainy",
     gradient: ["#7F7FD5", "#86A8E7", "#91EAE4"],
-    title: "",
-    subtitle: "",
   },
   Rain: {
     iconName: "weather-pouring",
     gradient: ["#0F2027", , "#203A43", "#91EAE4"],
-    title: "Rainism~~",
-    subtitle: "Oh my rainism....!!",
   },
   Snow: {
     iconName: "weather-snowy",
     gradient: ["#83a4d4", "#b6fbff"],
-    title: "",
-    subtitle: "",
   },
   Clear: {
     iconName: "weather-sunny",
     gradient: ["#2980B9", "#6DD5FA", "#ffffff"],
-    title: "Great!",
-    subtitle: "Let's go outside!!",
   },
   Clouds: {
     iconName: "weather-cloudy",
     gradient: ["#076585", "#ffffff"],
-    title: "Gray sky..",
-    subtitle: "So gloomy day",
   },
   Mist: {
     iconName: "weather-fog",
     gradient: ["#003973", "#E5E5BE"],
-    title: "Fxxxing Day",
-    subtitle: "Thanks a lot China 🤬",
   },
   Smoke: {
     iconName: "weather-fog",
     gradient: ["#403B4A", "#E7E9BB"],
-    title: "Fxxxing Day",
-    subtitle: "",
   },
   Dust: {
     iconName: "weather-hail",
     gradient: ["#403B4A", "#E7E9BB"],
-    title: "Fxxxing Day",
-    subtitle: "Thanks a lot China 🤬",
   },
   Fog: {
     iconName: "weather-fog",
     gradient: ["#003973", "#E5E5BE"],
-    title: "Fxxxing Day",
-    subtitle: "Thanks a lot China 🤬",
   },
   Sand: {
     iconName: "weather-hail",
     gradient: ["#403B4A", "#E7E9BB"],
-    title: "Fxxxing Day",
-    subtitle: "Thanks a lot China 🤬",
   },
   Tornado: {
     iconName: "weather-hurricane",
     gradient: ["#292E49", "#536976"],
-    title: "Dangerous !",
-    subtitle: "Just in home",
   },
 };
 
 export default function Weather({ temp, condition }) {
-  //   condition = "Clear";
   return (
     <LinearGradient
       colors={weatherOptions[condition].gradient}
@@ -100,14 +73,9 @@ export default function Weather({ temp, condition }) {
           size={80}
           color="white"
         />
-        <Text style={styles.temp}>{temp} °C</Text>
+        <Text style={styles.temp}>{temp}</Text>
       </View>
-      <View style={{ ...styles.halfContainer, ...styles.textContainer }}>
-        <Text style={styles.title}>{weatherOptions[condition].title}</Text>
-        <Text style={styles.subtitle}>
-          {weatherOptions[condition].subtitle}
-        </Text>
-      </View>
+      <View style={styles.halfContainer}></View>
     </LinearGradient>
   );
 }
@@ -127,6 +95,8 @@ Weather.propTypes = {
     "Dust",
     "Fog",
     "Sand",
+    "Ash",
+    "Squall",
     "Tornado",
   ]).isRequired,
 };
@@ -147,23 +117,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-
-  title: {
-    color: "white",
-    fontSize: 45,
-    fontWeight: "300",
-    marginBottom: 15,
-  },
-
-  subtitle: {
-    color: "white",
-    fontWeight: "600",
-    fontSize: 25,
-  },
-
-  textContainer: {
-    paddingHorizontal: 20,
-    alignItems: "flex-start",
   },
 });
